@@ -1,4 +1,11 @@
 body{
     margin : 0px;
-    background: linear-gradient()
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    background: linear-gradient(#20499a, #2aa9a1);
+    background-repeat: no-repeat;
+    height: 100vh;
+    
 }
