@@ -1,5 +1,3 @@
-
-
 function main(){
     console.log("Hello meteo !");
 
