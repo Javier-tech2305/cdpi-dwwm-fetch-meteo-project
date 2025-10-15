@@ -1,11 +1,54 @@
-body{
-    margin : 0px;
+body {
+    margin: 0px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     text-align: center;
-    background: linear-gradient(#20499a, #2aa9a1);
-    background-repeat: no-repeat;
     height: 100vh;
-    
+    color: #fff;
+    background-image: url("background/sunny.gif");
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: cover;
+    backdrop-filter: blur(10px);
+}
+.clear-night{
+
+        background-image: url("background/clear-night.gif");
+
+}
+.cloudy-night{
+
+        background-image: url("background/cloudy-night.gif");
+
+}
+.clear-sky{
+
+        background-image: url("background/clear-sky.gif");
+
+}
+.cloudy-sky{
+
+        background-image: url("background/cloudy-sky.gif");
+
+}
+.raini{
+
+        background-image: url("background/raini.gif");
+
+}
+.rainy-night{
+
+        background-image: url("background/rainy-night.gif");
+
+}
+.storn{
+
+        background-image: url("background/storn.gif");
+
+}
+.snow{
+
+        background-image: url("background/snow.webp");
+
 }
