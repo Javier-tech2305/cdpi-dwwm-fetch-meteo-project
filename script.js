@@ -49,17 +49,10 @@ async function getweather(position_obj) {
 
         const clima = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${long}&current=is_day,temperature_2m,weather_code&timezone=auto`)
         const clima_obj = await clima.json()
-
-        console.table(clima_obj)
-
-        console.log(clima_obj.current.is_day)
-        console.log(clima_obj.current.weather_code)
-        console.log(clima_obj.current.temperature_2m)
-
         const temperature = clima_obj.current.temperature_2m;
 
         setTemperature(temperature)
-        setImgMeteo(clima_obj.current.weather_code)
+        setImgMeteo(clima_obj.current.weather_code, clima_obj.current.is_day)
 
     } catch (error) {
         console.error("no tengo el clima")
@@ -79,7 +72,7 @@ async function searchBarre() {
         const city = formData_obj.get("city")
         setCoordenade(city.trim())
 
-      
+
     })
 
 }
@@ -105,50 +98,48 @@ async function setCoordenade(city) {
 function settitle(city, country) {
 
     const titleElement = document.querySelector(".city-title").textContent = city
-     const subTitleElement = document.querySelector(".country-title").textContent = country
+    const subTitleElement = document.querySelector(".country-title").textContent = country
 }
 
-function setImgMeteo(weather_code) {
+function setImgMeteo(weather_code, is_day) {
+  
+    document.body.classList.remove("rainy", "snow", "storn", "clear-night", "cloudy-night", "cloudy-sky", "fog","night");
 
-    console.log("entro en la funcion img")
+    if(is_day == 1){
 
-    if(!weather_code <= 48){
-
-        console.log("entro en el 1 if")   
-        if(!weather_code >= 51 || weather_code <= 57 ){
-            console.log("2 if")
-            if(!weather_code >=61 || weather_code <= 67){
-                console.log("3 if")
-                if(){}                }
-                document.body.classList.remove
-                document.body.classList.toggle("snow")
-    
-
-            }else{
-                document.body.classList.remove
-                document.body.classList.toggle("storn")
-    
-            }
-        }else{
-
-            document.body.classList.toggle("raini")
-    
+        if (weather_code >= 0 && weather_code <= 3) {
+           document.body.classList.add("cloudy-sky");
+        }
+       
+        else if (weather_code >= 45 && weather_code <= 48) {
+            document.body.classList.add("fog");
+        }
+       
+        else if ((weather_code >= 51 && weather_code <= 67) || (weather_code >= 80 && weather_code <= 82)) {
+           document.body.classList.add("rainy");
+        }
+       
+        else if ((weather_code >= 71 && weather_code <= 77) || (weather_code >= 85 && weather_code <= 86)) {
+            document.body.classList.add("snow");
+        }
+       
+        else if (weather_code >= 95) {
+           document.body.classList.add("storn");
+        }
+        
+        else {
+            document.body.classList.add("cloudy-sky");
         }
     }else{
-
-        return
-    
+        document.body.classList.add("night");
     }
 
-
-    
-    
-
 }
+
 
 function setTemperature(temperature) {
 
-    const titleElement = document.querySelector(".temperature").textContent = temperature + "°"
+    const titleElement = document.querySelector(".temperature").textContent = temperature + "°C"
 
 }
 

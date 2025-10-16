@@ -6,25 +6,16 @@ body {
     text-align: center;
     height: 100vh;
     color: #fff;
-    background-image: url("background/sunny.gif");
+    background-image: url("background/cloudy-sky.gif");
     background-position: center center;
     background-attachment: fixed;
     background-size: cover;
     backdrop-filter: blur(10px);
 }
-.clear-night{
 
-        background-image: url("background/clear-night.gif");
-
-}
 .cloudy-night{
 
         background-image: url("background/cloudy-night.gif");
-
-}
-.clear-sky{
-
-        background-image: url("background/clear-sky.gif");
 
 }
 .cloudy-sky{
@@ -32,12 +23,7 @@ body {
         background-image: url("background/cloudy-sky.gif");
 
 }
-.raini{
-
-        background-image: url("background/raini.gif");
-
-}
-.rainy-night{
+.rainy{
 
         background-image: url("background/rainy-night.gif");
 
@@ -51,4 +37,12 @@ body {
 
         background-image: url("background/snow.webp");
 
+}
+.fog{
+
+        background-image: url("background/fog.webp");
+
+}
+.night{
+        background-image: url("background/night.gif");
 }
